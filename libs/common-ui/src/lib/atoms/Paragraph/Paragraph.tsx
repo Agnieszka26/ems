@@ -1,5 +1,5 @@
-import React, { ComponentProps } from 'react';
-import '../../../styles.css';
+import { ComponentProps } from 'react';
+import '../styles.css';
 import { classMerge } from '../../../utils/cn';
 type Props = ComponentProps<'p'> & {
   children: string;
