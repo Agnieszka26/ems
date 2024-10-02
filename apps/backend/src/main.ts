@@ -6,7 +6,6 @@
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
-import ApiGuard from './app/guards/api-guard';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -19,7 +18,7 @@ async function bootstrap() {
       transform: true, // zamienia na istancje otypowanych danych przez classe, rzutuje typy
     })
   );
-  app.useGlobalGuards(new ApiGuard());
+  // app.useGlobalGuards(new ApiGuard());
   const port = process.env.PORT || 3000;
   await app.listen(port);
   Logger.log(
