@@ -9,18 +9,15 @@ import {
   Query,
   UseFilters,
 } from '@nestjs/common';
-import {   ReviewService } from './review.service';
-import { Review } from './review.entity';
-import { CreateReviewDto } from './create-review.dto';
-import { UpdateReviewDto } from './update-review.dto';
 import HttpExceptionFilter from '../filters/http-exception-filter';
-//można w kontrolerze ale też można w metodze
-@UseFilters(new HttpExceptionFilter)
-@Controller('reviews') // http://localhost:3002/api/reviews
+import { CreateReviewDto } from './create-review.dto';
+import { ReviewService } from './review.service';
+import { UpdateReviewDto } from './update-review.dto';
+
+@UseFilters(new HttpExceptionFilter())
+@Controller('reviews')
 export class ReviewsController {
-  constructor(private readonly reviewsService: ReviewService) {
-    // this.reviewsService = new reviewsService() -> to się dzieje automatycznie, nie trzeba tego pisać
-  }
+  constructor(private readonly reviewsService: ReviewService) { }
 
   @Get()
   async getReviews(@Query() query) {
@@ -29,19 +26,22 @@ export class ReviewsController {
   }
   @Get(':id')
   async getReview(@Param('id') id: string) {
-    return this.reviewsService.getReview(+id);
+    return this.reviewsService.getReview(id);
   }
   @Delete(':id')
-  async deleteReview(@Param('id') id: number) {
-    await this.reviewsService.deleteReview(+id);
+  async deleteReview(@Param('id') id: string) {
+    await this.reviewsService.deleteReview(id);
     return {};
   }
   @Post()
-  async createReview(@Body() createReviewDto: CreateReviewDto ) {
+  async createReview(@Body() createReviewDto: CreateReviewDto) {
     return this.reviewsService.createReview(createReviewDto);
   }
   @Patch()
-  async updateReview(@Param('id') id: number, @Body() updateReviewDto: UpdateReviewDto){
-    return this.reviewsService.updateReview(id, updateReviewDto )
+  async updateReview(
+    @Param('id') id: string,
+    @Body() updateReviewDto: UpdateReviewDto
+  ) {
+    return this.reviewsService.updateReview(id, updateReviewDto);
   }
 }
