@@ -9,5 +9,4 @@ export class Review {
   content: string;
   rate: number;
   author_: string;
-
 }

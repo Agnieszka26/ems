@@ -1,10 +1,12 @@
-import { Header, PageContainer } from '@ems/common-ui';
+import { PageContainer } from '@ems/common-ui';
+import { useGetReviews } from '../../hooks/useGetRerviews';
 import { ReviewList } from '../components/ReviewList/ReviewList';
 
 const ReviewsPage = () => {
+  const [reviews] = useGetReviews();
   return (
     <PageContainer>
-      <ReviewList reviews={['review1', 'review2']} />
+      <ReviewList reviews={reviews} />
     </PageContainer>
   );
 };
