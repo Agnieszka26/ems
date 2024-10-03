@@ -59,13 +59,13 @@ export class ReviewService {
       });
     });
   }
-  createReview({ content, author, rate }: CreateReviewDto) {
+  createReview({ content, author_, rate }: CreateReviewDto) {
     tableReviews.create(
       [
         {
           fields: {
             content,
-            author,
+            author_,
             rate,
           },
         },
@@ -81,19 +81,21 @@ export class ReviewService {
       }
     );
 
-    return { content, author, rate };
+    return { content, author_, rate };
   }
   updateReview(
     id: Review['public_id'],
-    { content, author, rate }: UpdateReviewDto
+    { content, author_, rate, isAccepted }: UpdateReviewDto
   ) {
+    console.log('isAccepted', isAccepted)
     tableReviews.update(
       [
         {
           id,
           fields: {
             content,
-            author,
+            author_,
+            isAccepted,
             rate,
           },
         },
@@ -109,7 +111,7 @@ export class ReviewService {
       }
     );
 
-    return { content, author, rate };
+    return { content, author_, rate };
   }
   deleteReview(id: Review['public_id']) {
     tableReviews.destroy([id], function (err, deletedRecords) {

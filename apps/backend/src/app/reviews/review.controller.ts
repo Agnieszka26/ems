@@ -37,11 +37,12 @@ export class ReviewsController {
   async createReview(@Body() createReviewDto: CreateReviewDto) {
     return this.reviewsService.createReview(createReviewDto);
   }
-  @Patch()
+  @Patch(':id')
   async updateReview(
     @Param('id') id: string,
     @Body() updateReviewDto: UpdateReviewDto
   ) {
+    console.log('id', id)
     return this.reviewsService.updateReview(id, updateReviewDto);
   }
 }

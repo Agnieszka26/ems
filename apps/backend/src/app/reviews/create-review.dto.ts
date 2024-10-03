@@ -1,5 +1,4 @@
 import { IsNumber, IsPositive, IsString } from 'class-validator';
-import { Author } from './review.entity';
 
 export class CreateReviewDto {
   @IsString()
@@ -7,5 +6,8 @@ export class CreateReviewDto {
   @IsNumber()
   @IsPositive()
   rate: number;
-  author: Author;
+  @IsString()
+  author_: string;
+  @IsString()
+  isAccepted: boolean
 }

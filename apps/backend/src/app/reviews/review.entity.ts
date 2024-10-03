@@ -8,5 +8,6 @@ export class Review {
   public_id: string;
   content: string;
   rate: number;
-  author: Author;
+  author_: string;
+
 }
