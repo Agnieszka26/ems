@@ -42,7 +42,6 @@ export class ReviewsController {
     @Param('id') id: string,
     @Body() updateReviewDto: UpdateReviewDto
   ) {
-    console.log('id', id)
     return this.reviewsService.updateReview(id, updateReviewDto);
   }
 }

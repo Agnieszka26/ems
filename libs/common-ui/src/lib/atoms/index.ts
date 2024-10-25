@@ -1,4 +1,5 @@
 export * from './Button';
 export * from './Header';
+export * from './Loader';
+export * from './NavbarElement';
 export * from './Paragraph';
-export * from './NavbarElement'

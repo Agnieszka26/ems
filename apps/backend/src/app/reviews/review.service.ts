@@ -12,7 +12,6 @@ export class ReviewService {
 
       tableReviews
         .select({
-          maxRecords: 3,
           view: 'Grid view',
         })
         .eachPage(
@@ -87,7 +86,6 @@ export class ReviewService {
     id: Review['public_id'],
     { content, author_, rate, isAccepted }: UpdateReviewDto
   ) {
-    console.log('isAccepted', isAccepted)
     tableReviews.update(
       [
         {
