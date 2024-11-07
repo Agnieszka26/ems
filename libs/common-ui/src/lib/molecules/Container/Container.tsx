@@ -1,3 +1,4 @@
+"use client"
 import React, { ComponentProps, ReactNode } from 'react';
 import { classMerge } from '../../../utils/cn';
 

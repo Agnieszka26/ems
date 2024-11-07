@@ -1,0 +1,26 @@
+.rotate-slowly {
+    animation: swing 3s cubic-bezier(0.5, 0.05, 0.2, 0.95) infinite;
+    transform-origin: top center;
+}
+
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(15deg);
+    }
+    40% {
+        transform: rotate(-8deg);
+    }
+    60% {
+        transform: rotate(4deg);
+    }
+    80% {
+        transform: rotate(-2deg);
+    }
+    100% {
+        transform: rotate(1deg);
+    }
+}
