@@ -1,101 +1,147 @@
-# Ems
+# Employee Management System (EMS)
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+## Overview
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+The **Employee Management System (EMS)** is an internal tool designed to manage employees and collect feedback within an organization. Built with [Nx](https://nx.dev), the app leverages modern frameworks like **Next.js**, **NestJS**, and **React** for a scalable, feature-rich solution.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/next?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+---
 
-## Run tasks
+## Features
 
-To run the dev server for your app, use:
+### Employee Management
+- **CRUD Operations for Employees**:
+  - Add, update, view, and delete employees.
+  - Maintain an organized and searchable employee database.
 
-```sh
-npx nx dev website
-```
+### Feedback Management
+- **Opinion Submission**: Employees can submit feedback about the organization via the website.
+- **Admin Panel for Moderation**:
+  - Approve or reject submitted feedback.
+  - Control what feedback is displayed on the site.
 
-To create a production bundle:
+### Nx Workspace Benefits
+- Modular architecture for easy scalability and maintainability.
+- Fast builds and test execution using Nx's caching mechanism.
+- Support for multiple applications and libraries in a single repository.
 
-```sh
-npx nx build website
-```
+---
 
-To see all available targets to run for a project, run:
+## Tech Stack
 
-```sh
-npx nx show project website
-```
-        
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+### Backend
+- **NestJS**: For creating scalable and maintainable APIs.
+- **Airtable**: Lightweight database for managing employee and feedback data.
+- **Axios**: Simplified HTTP requests.
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Frontend
+- **Next.js**: For server-side rendering and static site generation.
+- **React**: Component-based architecture for building dynamic UIs.
+- **TailwindCSS + DaisyUI**: For responsive and customizable styling.
+- **Framer Motion**: Animations and interactive UI components.
 
-## Add new projects
+### Utilities
+- **Class-Transformer & Class-Validator**: For data validation and transformation.
+- **React-Router-DOM**: Efficient routing for admin and feedback views.
+- **Vitest & Jest**: Comprehensive testing tools.
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+---
 
-Use the plugin's generator to create new projects.
+## Prerequisites
+Before you can use this automation, ensure you have the following:
 
-To generate a new application, use:
+- UiPath Studio installed
+- Valid licenses for UiPath Robot and Orchestrator (if deploying the bot)
+- Access to both the source and target applications
+- Necessary credentials and permissions to interact with both applications
+## Installation and Setup
 
-```sh
-npx nx g @nx/next:app demo
-```
+### Prerequisites
+- Node.js (v18.x or higher)
+- npm or yarn
+- Nx CLI (`npm install -g nx`)
 
-To generate a new library, use:
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/ems.git
+   cd ems
 
-```sh
-npx nx g @nx/react:lib mylib
-```
+2. Install dependencies:
+   ```bash
+   npm install
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+3. Configure environment variables:
+- Create a .env file in the root directory.
+- Add the required variables:
+  ```bash
+    DATABASE_URL=your_airtable_url
+    NEXTAUTH_SECRET=your_nextauth_secret
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+4. Run the development server:
+    ```bash
+      npx nx serve website
 
-## Set up CI!
+5. Access the application:
+- Frontend: Navigate to http://localhost:3000.
+- Backend API: Available at http://localhost:4000.
 
-### Step 1
+## NX Commands
+### Development
+- Run the development server for the website:
+  ```bash
+    npx nx serve website
 
-To connect to Nx Cloud, run the following command:
+- Run the admin:
+  ```bash
+    npx nx serve admin
+- Run the backend:
+  ```bash
+    npx nx serve backend
 
-```sh
-npx nx connect
-```
+### Building for Production
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+- Build the website:
+  ```bash
+   npx nx build website
+- Build the backend:
+  ```bash
+   npx nx build backend
+- Build the admin:
+  ```bash
+   npx nx build admin
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Project Graph
+Visualize the dependencies in your Nx workspace:
+    ```bash
+      npx nx graph
+## Folder Structure
+      ├── apps/
+      │   ├── website/         # Next.js public frontend for EMS
+      │   ├── backend/         # NestJS backend for EMS
+      |   ├── admin/           # NestJS admin website for EMS
+      ├── libs/
+      │   ├── common-ui/       # Shared UI components
+      ├──.editorconfig         # Editor configuration, see http://editorconfig.org
+      ├──.eslintignore
+      ├──.gitignore            # ignored files
+      ├──.prettierignore       # Add files here to ignore them from prettier formatting
+      ├──.prettierrc
+      ├── jest.config.ts
+      ├── nx.json              # Nx workspace configuration
+      ├── project.json         # Project-specific configuration
+      ├── package.json         # Dependency and script management
+      ├── README.md
+      ├── tailwind.config.js   # TailwindCSS configuration
+      ├── tsconfig.base.json   # TypeScript base configuration
+      ├── vitest.workspace.ts
+## Useful Links
+- [Nx Documentation](https://nx.dev/)
+- [NestJS Documentation](https://docs.nestjs.com/)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Documentation](https://react.dev/)
+- [TailwindCSS Documentation](https://v2.tailwindcss.com/docs)
 
-### Step 2
+## License
 
-Use the following command to configure a CI workflow for your workspace:
+This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
 
-```sh
-npx nx g ci-workflow
-```
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/nx-api/next?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
