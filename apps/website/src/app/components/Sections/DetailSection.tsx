@@ -4,6 +4,7 @@ import image1 from '../../assets/mobileAppDevelopment1.svg';
 import image2 from '../../assets/mobileAppDevelopment2.svg';
 import image3 from '../../assets/mobileAppDevelopment3.svg';
 import Header from '../Header/Header';
+import Separator from '../../atoms/Separator';
 const details = [
   {
     image: image1,
@@ -46,10 +47,10 @@ const PresentationCard = ({
 };
 function DetailSection() {
   return (
-    <section className="py-56 ">
+    <section className="pt-56 ">
       <Container>
         <Header text=" Special Expertise from Us" />
-        <div className="bg-primary-dark h-[2px] w-20 mx-auto my-8 rounded-sm"></div>
+        <Separator color="primary-dark" className='mx-auto'/>
         <p className=" text-labradorite text-md mb-8 text-center w-3/4 mx-auto">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In augue et
           pharetra dolor pharetra, convallis turpis euismod ultrices. Netus nisl

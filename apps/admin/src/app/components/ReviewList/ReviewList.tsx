@@ -12,7 +12,7 @@ export const ReviewList = ({ reviews }: Props) => {
   const handleEdit = async (id: string, body: any) => {
     updateReviews(id, body);
   };
-useEffect(()=>{})
+// useEffect(()=>{})
   return (
     <Container>
       <Header className="mb-5 mx-auto text-center">Review's List</Header>
