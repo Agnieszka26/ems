@@ -1,6 +1,12 @@
 export type Review = {
   author: string;
   content: string;
-  points: number;
+  rate: number;
   Created?: string
+};
+export type ReviewForm = {
+  author_: string;
+  content: string;
+  rate: number;
+
 };

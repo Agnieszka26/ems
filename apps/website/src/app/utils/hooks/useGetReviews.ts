@@ -20,9 +20,7 @@ export type State<T> =
       data: undefined;
     };
 
-export type APIResponse<T> = {
-  results: T;
-};
+
 
 export const useGetReviews = () => {
   const [state, setState] = useState<State<Review[]>>({
@@ -39,7 +37,7 @@ export const useGetReviews = () => {
         }
       })
       .then((responseData) => {
-       const data = responseData.map((data) => {return {...data, author: data.author_}})
+       const data = responseData.map((data: any) => {return {...data, author: data.author_}})
         setState({
           data: data as Review[],
           isLoading: false,

@@ -14,6 +14,7 @@ export const Textarea = forwardRef(
       value,
       label,
       className,
+      error,
       ...rest
     }: Pick<
       ComponentProps<'textarea'>,
@@ -39,6 +40,7 @@ export const Textarea = forwardRef(
           onChange={onChange}
           {...rest}
         />
+        <p className="text-red-700 text-xs">{error}</p>
       </div>
     );
   }

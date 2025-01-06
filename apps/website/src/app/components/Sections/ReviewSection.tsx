@@ -1,5 +1,5 @@
-import { Button, Container} from '@ems/common-ui';
-import React from 'react'
+import { Button, Container } from '@ems/common-ui';
+import React from 'react';
 import Header from '../Header/Header';
 import Separator from '../../atoms/Separator';
 import TestimonialCard from '../TestimonialCard/TestimonialCard';
@@ -8,8 +8,9 @@ import { Review } from '../../types/review';
 type Props = {
   reviews: Review[];
 };
-const ReviewSection = ({reviews}: Props) => {
-    const router = useRouter()
+const ReviewSection = ({ reviews }: Props) => {
+  const router = useRouter();
+  
   return (
     <section className="pt-20 ">
       <Container className="flex justify-between items-start">
@@ -20,12 +21,14 @@ const ReviewSection = ({reviews}: Props) => {
           />
           <Separator color="secondary" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {reviews.map(({ author, content, points }) => {
+            {reviews.map(({ author, content, rate, Created }) => {
               return (
                 <TestimonialCard
+                  key={author + rate}
                   content={content}
-                  points={points}
+                  rate={rate}
                   author={author}
+                  Created={Created}
                 />
               );
             })}
@@ -41,6 +44,6 @@ const ReviewSection = ({reviews}: Props) => {
       </Container>
     </section>
   );
-}
+};
 
-export default ReviewSection
+export default ReviewSection;

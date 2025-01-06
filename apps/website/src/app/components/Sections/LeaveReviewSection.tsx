@@ -6,10 +6,13 @@ import LeaveReviewForm from '../Forms/LeaveReviewForm';
 const LeaveReviewSection = () => {
   return (
     <section className="pt-20 pb-20">
-      <Container >
-        <Header text="Leave Review" className="text-center pt-10 leading-normal" />
-        <Separator color="primary-dark" className='mx-auto' />
-       <LeaveReviewForm />
+      <Container>
+        <Header
+          text="Leave Review"
+          className="text-center pt-10 leading-normal"
+        />
+        <Separator color="primary-dark" className="mx-auto" />
+        <LeaveReviewForm />
       </Container>
     </section>
   );

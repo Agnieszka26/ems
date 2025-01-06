@@ -15,6 +15,7 @@ export const Input = forwardRef(
       label,
       type,
       className,
+      error,
       ...rest
     }: Pick<
       ComponentProps<'input'>,
@@ -41,6 +42,7 @@ export const Input = forwardRef(
           onChange={onChange}
           {...rest}
         />
+        <p className='text-red-700 text-xs'>{error}</p>
       </div>
     );
   }

@@ -1,20 +1,18 @@
-import React, { ComponentProps } from 'react'
-import { Review } from '../../types/review'
-type Props = ComponentProps<'div'> &  Review
-const TestimonialCard = ({content, points, author}: Props) => {
+import React, { ComponentProps } from 'react';
+import { Review } from '../../types/review';
+type Props = ComponentProps<'div'> & Review;
+
+const TestimonialCard = ({ content, rate, author }: Props) => {
   return (
     <div className="relative min-w-full mx-auto bg-white rounded-lg shadow-lg p-6 text-center">
-      {/* Quote Icon */}
       <div className="text-primary text-8xl leading-none mb-4 absolute top-0 left-0 font-black opacity-50 ">
         &ldquo;
       </div>
 
-      {/* Quote Text */}
       <p className="text-gray-600 text-lg mb-4 z-10">{content}</p>
 
-      {/* Star Rating */}
       <div className="flex justify-center items-center mb-4">
-        {[...Array(points)].map((_, index) => (
+        {[...Array(rate)].map((_, index) => (
           <svg
             key={index}
             xmlns="http://www.w3.org/2000/svg"
@@ -27,11 +25,9 @@ const TestimonialCard = ({content, points, author}: Props) => {
         ))}
       </div>
 
-      {/* Author Info */}
       <h3 className="text-gray-800 font-bold text-lg">{author}</h3>
-      {/* <p className="text-gray-500 text-sm">UI Designer, Apple</p> */}
     </div>
   );
-}
+};
 
-export default TestimonialCard
+export default TestimonialCard;
