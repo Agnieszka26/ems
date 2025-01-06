@@ -1,6 +1,6 @@
 export type Review = {
+  author: string;
   content: string;
-  rate: number;
-  author_: string;
-  
-}
+  points: number;
+  Created?: string
+};

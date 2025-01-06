@@ -21,7 +21,7 @@ const LeaveReviewForm = () => {
       <div className="">
         <Input
           label="Rate"
-          {...register('rate')}
+          {...register('points')}
           className="mt-4 "
           type="number"
         />
@@ -29,7 +29,7 @@ const LeaveReviewForm = () => {
 
       </div>
       <div className="flex flex-col gap-4">
-        <Input label="Author" {...register('author_')} className="mt-4" />
+        <Input label="Author" {...register('author')} className="mt-4" />
 
         <Button
           type="submit"
